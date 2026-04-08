@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&display=swap");
 
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   margin: 0;
   font-family: "Crimson Text", serif;
   background: #111;
@@ -15,22 +20,44 @@ body.light {
   color: #222;
 }
 
-header {
+.page-wrapper {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+header,
+footer {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   padding: 15px;
   background: #220000;
   align-items: center;
-  border-bottom: 2px solid #f5d77f;
   transition:
     background 0.3s,
     border-color 0.3s;
 }
 
-header.light {
+header {
+  border-bottom: 2px solid #f5d77f;
+}
+
+footer {
+  border-top: 2px solid #f5d77f;
+}
+
+header.light,
+footer.light {
   background: #f5e6d7;
+}
+
+header.light {
   border-bottom: 2px solid #b06040;
+}
+
+footer.light {
+  border-top: 2px solid #b06040;
 }
 
 header h1 {

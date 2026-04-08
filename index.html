@@ -7,53 +7,63 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <h1>🐾 Nano: the Gathering</h1>
-      <input type="text" id="search" placeholder="Search cards..." />
-      <select id="typeFilter">
-        <option value="">All Types</option>
-        <option value="Character">Character</option>
-      </select>
-      <button id="toggleAdvanced">Advanced Filters</button>
-      <div id="advancedFilters" class="hidden">
-        <input type="number" id="minAttack" placeholder="Min ATK" />
-        <input type="number" id="maxAttack" placeholder="Max DEF" />
-        <input type="number" id="minDefense" placeholder="Min DEF" />
-        <input type="number" id="maxDefense" placeholder="Max DEF" />
-        <input type="text" id="minCost" placeholder="Min Cost (comma)" />
-        <input type="text" id="maxCost" placeholder="Max Cost (comma)" />
+    <div class="page-wrapper">
+      <header>
+        <h1>🐾 Nano: the Gathering</h1>
+        <input type="text" id="search" placeholder="Search cards..." />
+        <select id="typeFilter">
+          <option value="">All Types</option>
+          <option value="Character">Character</option>
+        </select>
+        <button id="toggleAdvanced">Advanced Filters</button>
+        <div id="advancedFilters" class="hidden">
+          <input type="number" id="minAttack" placeholder="Min ATK" />
+          <input type="number" id="maxAttack" placeholder="Max DEF" />
+          <input type="number" id="minDefense" placeholder="Min DEF" />
+          <input type="number" id="maxDefense" placeholder="Max DEF" />
+          <input type="text" id="minCost" placeholder="Min Cost (comma)" />
+          <input type="text" id="maxCost" placeholder="Max Cost (comma)" />
+        </div>
+        <button id="themeToggle">🌙</button>
+        <button id="randomCardBtn">🎲 Random Card</button>
+        <button id="aboutBtn">About</button>
+        <button id="howToPlayBtn">How to Play</button>
+      </header>
+      <main>
+        <div id="cardGrid"></div>
+      </main>
+      <!-- Card Modal -->
+      <div id="modal" class="modal hidden">
+        <div class="modal-content">
+          <button id="closeBtn">Close</button>
+          <img id="modalImg" />
+          <h2 id="modalName"></h2>
+          <p id="modalType"></p>
+          <p id="modalStats"></p>
+          <p id="modalRules"></p>
+          <p id="modalFlavor" class="flavor"></p>
+          <p id="modalDetails"></p>
+        </div>
       </div>
-      <button id="themeToggle">🌙</button>
-      <button id="randomCardBtn">🎲 Random Card</button>
-      <button id="aboutBtn">About</button>
-      <button id="howToPlayBtn">How to Play</button>
-    </header>
-
-    <main>
-      <div id="cardGrid"></div>
-    </main>
-
-    <!-- Card Modal -->
-    <div id="modal" class="modal hidden">
-      <div class="modal-content">
-        <button id="closeBtn">Close</button>
-        <img id="modalImg" />
-        <h2 id="modalName"></h2>
-        <p id="modalType"></p>
-        <p id="modalStats"></p>
-        <p id="modalRules"></p>
-        <p id="modalFlavor" class="flavor"></p>
-        <p id="modalDetails"></p>
+      <!-- Info Modal (About / How to Play) -->
+      <div id="infoModal" class="modal hidden">
+        <div class="modal-content">
+          <button id="infoCloseBtn">Close</button>
+          <h2 id="infoTitle"></h2>
+          <div id="infoContent"></div>
+        </div>
       </div>
-    </div>
-
-    <!-- Info Modal (About / How to Play) -->
-    <div id="infoModal" class="modal hidden">
-      <div class="modal-content">
-        <button id="infoCloseBtn">Close</button>
-        <h2 id="infoTitle"></h2>
-        <div id="infoContent"></div>
-      </div>
+      <footer>
+        <p>
+          Check out our
+          <a
+            href="https://github.com/jebent521/Nano-The-Gathering"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub repository</a
+          >!
+        </p>
+      </footer>
     </div>
 
     <script src="index.js"></script>

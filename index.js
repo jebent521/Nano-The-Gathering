@@ -30,6 +30,7 @@ infoModal.classList.add("hidden");
 if (localStorage.getItem("theme") === "light") {
   document.body.classList.add("light");
   document.querySelector("header").classList.add("light");
+  document.querySelector("footer").classList.add("light");
   themeToggle.textContent = "☀️";
 } else {
   themeToggle.textContent = "🌙";
@@ -99,6 +100,7 @@ document.addEventListener("keydown", (e) => {
 themeToggle.addEventListener("click", () => {
   const isLight = document.body.classList.toggle("light");
   document.querySelector("header").classList.toggle("light");
+  document.querySelector("footer").classList.toggle("light");
   localStorage.setItem("theme", isLight ? "light" : "dark");
   themeToggle.textContent = isLight ? "☀️" : "🌙";
 });
