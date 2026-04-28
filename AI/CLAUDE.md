@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Nano: the Gathering** is a static promotional website and card catalog for a dog-themed deck-building card game inspired by Magic: the Gathering. This `AI/` directory is the Stage 2 implementation, built with human-written code to the spec in `Requirements and Constraints.md`. The `minAI/` sibling directory is a completed Stage 1 vibe-coded reference implementation.
+**Nano: the Gathering** is a static promotional website and card catalog for a dog-themed deck-building card game inspired by Magic: the Gathering. This `AI/` directory is the implementation, built with human-written code to the spec in `Requirements and Constraints.md`.
 
 ## Running Locally
 
@@ -20,13 +20,25 @@ There are no tests or linting configured.
 
 ## Card Data
 
-Card data lives in `../nano-data/cards.json` (relative to `AI/`). Each card object has:
+Card data lives in `../nano-data/cards.json` (relative to `AI/`). Images are PNGs in `../nano-data/media/`.
 
-```
-id, name, type, role, treatCost (array), attack, defense, rulesText, flavorText, details, image
-```
+There are three card `type` values: `Character`, `Action`, and `Treat`. Each card object has:
 
-Images are PNGs in `../nano-data/media/`.
+| Field | Type | Notes |
+|---|---|---|
+| `id` | number | unique (100s = Characters, 200s = Treats, 300s = Actions) |
+| `name` | string | |
+| `type` | string | `"Character"`, `"Action"`, or `"Treat"` |
+| `role` | string | flavor subtitle |
+| `rarity` | string | `"Common"`, `"Uncommon"`, or `"Rare"` |
+| `cardCount` | number | copies in a standard deck |
+| `treatCost` | number | resource cost to play; always `0` for Treat cards |
+| `attack` | number \| null | null for Action and Treat cards |
+| `defense` | number \| null | null for Action and Treat cards |
+| `rulesText` | string | |
+| `flavorText` | string \| null | null for Action and Treat cards |
+| `details` | string \| null | longer description; null for some cards |
+| `image` | string | path relative to `../nano-data/` |
 
 ## Themes
 
@@ -50,10 +62,3 @@ Design constraints: **no border-radius** (sharp, angular), juicy animations on a
 
 **Nice:** downloadable PDF rules, dragon-shaped card detail modal, "add to deck" fly animation, homepage GIF.
 
-## Reference Implementation
-
-`minAI/` has a working single-page implementation (`index.html` + `index.js` + `style.css`) worth reading for:
-
-- How `renderCards(cardArray)` / `applyFilters()` are structured
-- How the info modal is reused for multiple content types by swapping innerHTML
-- How theme toggling with `localStorage` works
