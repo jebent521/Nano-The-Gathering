@@ -1,45 +1,59 @@
 # CLAUDE.md
 
-## Scope
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-which files Claude may create or modify, and which it must never touch.
+## Project Overview
 
-## Tech stack
+**Nano: the Gathering** is a static promotional website and card catalog for a dog-themed deck-building card game inspired by Magic: the Gathering. This `AI/` directory is the Stage 2 implementation, built with human-written code to the spec in `Requirements and Constraints.md`. The `minAI/` sibling directory is a completed Stage 1 vibe-coded reference implementation.
 
-- HTML5, CSS3, ES2020 JS only. No frameworks.
+## Running Locally
 
-## File layout
+No build step. Serve static files with any HTTP server:
 
-Exact directory tree expected on VM under /srv/csc391web/team3/AI/ .
+```bash
+python3 -m http.server 8000
+```
 
-## Dataset Contract
+Open `http://localhost:8000`. Direct `file://` access won't work because `fetch()` is used to load `cards.json`.
 
-File: /srv/csc391support/nanodata/<file>
-Columns: ...
-Loading: fetched at runtime via fetch()
+There are no tests or linting configured.
 
-## Style Tokens
+## Card Data
 
-palette, typography, and anything else you want to specify like spacing units, responsive breakpoints, etc.
+Card data lives in `../nano-data/cards.json` (relative to `AI/`). Each card object has:
 
-| Token      | Value   |
-| ---------- | ------- |
-| --color-bg | #0B2545 |
-| ...        | ...     |
+```
+id, name, type, role, treatCost (array), attack, defense, rulesText, flavorText, details, image
+```
 
-## Commands
+Images are PNGs in `../nano-data/media/`.
 
-## Do Not
+## Themes
 
-- Do not add build tools.
-- Do not inline CSS.
-- Do not invent data values.
-- Do not delete files you did not create.
+Two named themes toggled by the user, persisted to `localStorage`:
 
-## Definition of Done
+| Token      | Cheese (light) | Chocolate (dark) |
+| ---------- | -------------- | ---------------- |
+| Primary    | `#ffcf10`      | `#362821`        |
+| Secondary  | `#f0ac2e`      | `#533e36`        |
+| Background | `#fffceb`      | `#212121`        |
+| Accent     | `#b2a6b9`      | `#4c6344`        |
+| Text       | `#372642`      | `#d9d0c1`        |
 
-A task is done when:
+Design constraints: **no border-radius** (sharp, angular), juicy animations on all interactive elements, glow effects on dark (Chocolate) mode.
 
-1. The page loads without console errors.
-2. The feature appears in the functionality table and works.
-3. Style matches the tokens above.
+## Functionality Priorities
+
+**Must:** hero/announcements section, about section, card catalog, search/filter by title + type + attack/defense/cost ranges.
+
+**Should:** shopping (card packs and individual cards), deck builder (card IDs in `localStorage`).
+
+**Nice:** downloadable PDF rules, dragon-shaped card detail modal, "add to deck" fly animation, homepage GIF.
+
+## Reference Implementation
+
+`minAI/` has a working single-page implementation (`index.html` + `index.js` + `style.css`) worth reading for:
+
+- How `renderCards(cardArray)` / `applyFilters()` are structured
+- How the info modal is reused for multiple content types by swapping innerHTML
+- How theme toggling with `localStorage` works
