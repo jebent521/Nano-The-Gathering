@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano: the Gathering</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="chocolate">
+
+    <header id="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">Nano<span class="logo-colon">:</span> the Gathering</a>
+            <nav class="nav">
+                <a href="index.html"   class="nav-link" data-page="index.html">Home</a>
+                <a href="catalog.html" class="nav-link" data-page="catalog.html">Cards</a>
+                <a href="deck.html"    class="nav-link" data-page="deck.html">Deck Builder</a>
+                <button class="btn btn-ghost" id="btn-how-to-play">How to Play</button>
+                <button class="btn btn-theme" id="btn-theme">
+                    <span id="theme-icon">☀️</span>
+                    <span id="theme-label">Cheese</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="hero-bg-cards" aria-hidden="true">
+            <div class="bg-card bc1"></div>
+            <div class="bg-card bc2"></div>
+            <div class="bg-card bc3"></div>
+            <div class="bg-card bc4"></div>
+        </div>
+        <div class="hero-inner">
+            <div class="hero-main">
+                <div class="hero-eyebrow">New Expansion: Sleepy Season</div>
+                <h2 class="hero-title">Command Every Nano.</h2>
+                <p class="hero-sub">The deck-building card game where one very good dog faces every challenge the world can throw at him.</p>
+                <div class="hero-btns">
+                    <a href="catalog.html" class="btn btn-primary btn-lg">View All Cards</a>
+                    <a href="#shop" class="btn btn-secondary btn-lg">Shop Now</a>
+                </div>
+            </div>
+            <div class="hero-news">
+                <h3 class="news-title">Latest News</h3>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <span class="news-date">Apr 2025</span>
+                        <p><strong>Sleepy Season</strong> expansion launches with 12 new Nap-synergy cards.</p>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">Mar 2025</span>
+                        <p>Spring Tournament season is open. Register at your local dog park.</p>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">Feb 2025</span>
+                        <p>Balance patch: Sith Nano cost increased to 7 Treats.</p>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">Jan 2025</span>
+                        <p>New card art for Bossman Nano. The tie is now slightly crooked.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-inner">
+            <h2 class="section-title">About the Game</h2>
+            <div class="about-layout">
+                <div class="about-text">
+                    <p>Nano: the Gathering is a two-player deck-building card game starring Nano, a white Sealyham Terrier of extraordinary talent and questionable judgment. Inspired by Magic: the Gathering, players compete by deploying Character cards, spending Treats as resources, and unleashing Action cards to swing the game in their favor.</p>
+                    <p>Build a deck around the <strong>Nap synergy</strong> for a patient defensive fortress, or stack Characters like Taco Nano and Death Star Nano for an overwhelming offensive juggernaut. Cards come in three types — <strong>Characters</strong> who battle on the field, <strong>Actions</strong> for instant effects, and <strong>Treats</strong> that generate the resources to play everything else.</p>
+                    <p>Two ancient forces define the universe: Cheese and Chocolate. Every card, every strategy, and every deck echoes that eternal conflict.</p>
+                </div>
+                <div class="forces">
+                    <div class="force force-cheese">
+                        <div class="force-icon">⚡</div>
+                        <h3>Cheese</h3>
+                        <p>The golden force. Aggressive strategies, treat generation, and relentless forward pressure.</p>
+                    </div>
+                    <div class="force force-chocolate">
+                        <div class="force-icon">🌑</div>
+                        <h3>Chocolate</h3>
+                        <p>The dark force. Patience, board control, and the long game — waiting to dismantle everything.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured">
+        <div class="section-inner">
+            <h2 class="section-title">Featured Cards</h2>
+            <div class="carousel-outer">
+                <button class="carousel-btn carousel-btn-prev" id="carousel-prev" aria-label="Previous">&#8249;</button>
+                <div class="carousel-viewport">
+                    <div class="carousel-track" id="carousel-track"></div>
+                </div>
+                <button class="carousel-btn carousel-btn-next" id="carousel-next" aria-label="Next">&#8250;</button>
+            </div>
+            <div class="carousel-dots" id="carousel-dots"></div>
+            <div class="featured-cta">
+                <a href="catalog.html" class="btn btn-primary btn-lg">Browse All Cards</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop">
+        <div class="section-inner">
+            <h2 class="section-title">Shop</h2>
+            <div class="shop-grid">
+                <div class="shop-card">
+                    <div class="shop-top">
+                        <div class="shop-emoji">🐾</div>
+                        <h3>Starter Deck</h3>
+                        <p>30-card prebuilt deck with a guaranteed Rare, two Uncommons, and a full rules insert.</p>
+                    </div>
+                    <div class="shop-bottom">
+                        <div class="shop-price">$9.99</div>
+                        <button class="btn btn-primary" data-product="Starter Deck" data-price="9.99">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="shop-card shop-featured">
+                    <div class="shop-badge">Best Value</div>
+                    <div class="shop-top">
+                        <div class="shop-emoji">🎴</div>
+                        <h3>Booster Pack</h3>
+                        <p>5 random cards with at least one Uncommon. Stack your collection or trade with friends.</p>
+                    </div>
+                    <div class="shop-bottom">
+                        <div class="shop-price">$3.99</div>
+                        <button class="btn btn-primary" data-product="Booster Pack" data-price="3.99">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="shop-card">
+                    <div class="shop-top">
+                        <div class="shop-emoji">⭐</div>
+                        <h3>Rare Bundle</h3>
+                        <p>All 4 Rare cards — Bossman, Aloha Watch, Death Star, and Sith Nano — guaranteed.</p>
+                    </div>
+                    <div class="shop-bottom">
+                        <div class="shop-price">$19.99</div>
+                        <button class="btn btn-primary" data-product="Rare Bundle" data-price="19.99">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div id="cart-bar" class="cart-bar hidden">
+                <span id="cart-label">0 items in cart</span>
+                <div id="cart-items-list" class="cart-items-list"></div>
+                <button class="btn btn-primary btn-sm" id="btn-checkout">Checkout →</button>
+                <button class="btn btn-ghost btn-sm" id="btn-clear-cart">Clear cart</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <span>Nano: the Gathering © 2025</span>
+            <a href="https://github.com" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+        </div>
+    </footer>
+
+    <div id="modal-info" class="modal" aria-hidden="true">
+        <div class="modal-backdrop" id="modal-info-backdrop"></div>
+        <div class="modal-box modal-box-info" role="dialog" aria-modal="true">
+            <button class="modal-close" id="modal-info-close" aria-label="Close">✕</button>
+            <div id="modal-info-body" class="modal-scrollable"></div>
+        </div>
+    </div>
+
+    <div id="fly-container" aria-hidden="true"></div>
+
+    <script src="shared.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
