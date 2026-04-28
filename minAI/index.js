@@ -36,10 +36,13 @@ if (localStorage.getItem("theme") === "light") {
   themeToggle.textContent = "🌙";
 }
 
-fetch("nano-data/cards.json")
+fetch("/nano-data/cards.json")
   .then((res) => res.json())
   .then((data) => {
-    cards = data.map((card) => ({ ...card, image: `nano-data/${card.image}` }));
+    cards = data.map((card) => ({
+      ...card,
+      image: `/nano-data/${card.image}`,
+    }));
     renderCards(cards);
   });
 
@@ -52,7 +55,7 @@ function renderCards(data) {
     const img = document.createElement("img");
     img.src = card.image;
     img.onerror = () => {
-      img.src = "nano-data/media/nano-couchnap.png";
+      img.src = "/nano-data/media/nano-couchnap.png";
     };
 
     const body = document.createElement("div");
