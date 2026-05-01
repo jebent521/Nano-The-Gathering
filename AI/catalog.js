@@ -13,7 +13,7 @@ async function init() {
         allCards = await loadCards();
     } catch (e) {
         document.getElementById('card-grid').innerHTML =
-            '<p class="no-results" style="display:block">Serve from an HTTP server to load cards.</p>';
+            '<p class="no-results">Serve from an HTTP server to load cards.</p>';
         return;
     }
 

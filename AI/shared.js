@@ -173,6 +173,9 @@ function createCardEl(card, { onAdd } = {}) {
         </div>
         ${onAdd ? `<button class="card-add-btn" title="Add to active deck" aria-label="Add ${card.name} to deck">+</button>` : ''}
     `;
+    const cardImg = div.querySelector('.card-img');
+    cardImg.onerror = () => { cardImg.src = '../nano-data/media/placeholder.png'; cardImg.onerror = null; };
+
     div.querySelector('.card-frame').addEventListener('click', () => openCardModal(card, onAdd));
     div.querySelector('.card-add-btn')?.addEventListener('click', e => {
         e.stopPropagation();
@@ -212,7 +215,7 @@ function openCardModal(card, onAdd) {
                     <span class="detail-cost">${card.treatCost}</span>
                 </div>
                 <div class="detail-img-wrap">
-                    <img src="../nano-data/${card.image}" alt="${card.name}" class="detail-img">
+                    <img src="../nano-data/${card.image}" alt="${card.name}" class="detail-img" id="detail-img-el">
                 </div>
                 <div class="detail-typeline">
                     <span class="detail-type">${card.type}${card.role ? ` — ${card.role}` : ''}</span>
@@ -235,6 +238,10 @@ function openCardModal(card, onAdd) {
         </div>
     `;
     document.body.appendChild(modal);
+
+    const detailImg = modal.querySelector('#detail-img-el');
+    detailImg.onerror = () => { detailImg.src = '../nano-data/media/placeholder.png'; detailImg.onerror = null; };
+
     requestAnimationFrame(() => requestAnimationFrame(() => modal.classList.add('active')));
 
     const close = () => {

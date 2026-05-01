@@ -581,18 +581,20 @@ body.chocolate .card[data-type="Treat"]:hover     .card-frame { box-shadow: var(
     flex-shrink: 0;
 }
 .card-img-wrap {
-    flex: 1;
+    flex: 1 1 0;
+    position: relative;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background: var(--bg-elevated);
     min-height: 0;
 }
 .card-img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
+    display: block;
     transition: transform 0.3s ease;
 }
 .card:hover .card-img { transform: scale(1.06); }
@@ -623,10 +625,10 @@ body.chocolate .card[data-type="Treat"]:hover     .card-frame { box-shadow: var(
     line-height: 1.4;
     color: var(--text);
     background: var(--card-bg);
-    flex-shrink: 0;
+    flex-shrink: 1;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
 .card-stats {
@@ -709,7 +711,7 @@ body.chocolate .card[data-type="Treat"]:hover     .card-frame { box-shadow: var(
     flex-shrink: 0;
 }
 .detail-img-wrap { background: var(--bg-elevated); border-bottom: 2px solid var(--border); }
-.detail-img { width: 100%; max-height: 220px; object-fit: cover; }
+.detail-img { width: 100%; display: block; object-fit: contain; }
 .detail-typeline {
     display: flex;
     justify-content: space-between;
@@ -761,6 +763,31 @@ body.chocolate .card[data-type="Treat"]:hover     .card-frame { box-shadow: var(
     flex-wrap: wrap;
 }
 .deck-copies { font-size: 0.78rem; color: var(--text-muted); font-family: 'Cinzel', serif; }
+
+.carousel-error {
+    padding: 24px;
+    color: var(--text-muted);
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+}
+
+.cart-line-total {
+    font-weight: 700;
+    border-top: 2px solid var(--border);
+    margin-top: 4px;
+}
+
+.card-img-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-elevated);
+    color: var(--text-muted);
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+}
 
 /* ===== SHOP ===== */
 #shop { background: var(--bg-surface); border-top: 3px solid var(--border); }
@@ -868,6 +895,7 @@ body.chocolate .shop-featured { border-color: #4c6344; box-shadow: 0 0 18px rgba
     align-items: center;
     justify-content: space-between;
 }
+.deck-sidebar-header h2,
 .deck-sidebar-header h3 { font-size: 0.9rem; letter-spacing: 0.06em; }
 
 .deck-list { list-style: none; }
@@ -985,10 +1013,9 @@ body.chocolate .deck-list-item.active { border-left-color: var(--text-muted); bo
 
 .deck-browser-header {
     display: flex;
-    align-items: center;
-    gap: 12px;
+    flex-direction: column;
+    gap: 10px;
     margin-bottom: 16px;
-    flex-wrap: wrap;
 }
 .deck-browser-title { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.04em; }
 
@@ -997,6 +1024,49 @@ body.chocolate .deck-list-item.active { border-left-color: var(--text-muted); bo
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 14px;
 }
+
+.deck-sidebar-title { font-family: 'Cinzel', serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.06em; }
+
+.deck-editor-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+.deck-header-actions { display: flex; gap: 8px; flex-shrink: 0; }
+
+.deck-section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.deck-contents { margin-bottom: 32px; }
+
+.deck-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 64px 24px;
+    color: var(--text-muted);
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.deck-entry-remove {
+    margin-left: 4px;
+    opacity: 0.5;
+}
+.deck-entry-remove:hover { opacity: 1; color: #c02828; }
+.deck-qty-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.deck-qty-btn:disabled:hover { background: var(--bg); transform: none; }
 
 /* ===== FOOTER ===== */
 footer { background: var(--header-bg); border-top: 3px solid var(--header-border); padding: 24px; }
@@ -1049,8 +1119,37 @@ footer { background: var(--header-bg); border-top: 3px solid var(--header-border
 .modal.active .modal-box { transform: scale(1) translateY(0); }
 .modal-box-card { padding: 0; }
 .modal-box-info { max-width: 680px; width: 100%; padding: 0; }
+.modal-box-pdf  { max-width: 900px; width: 100%; padding: 0; display: flex; flex-direction: column; }
+
+.pdf-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: var(--bg-elevated);
+    border-bottom: 2px solid var(--border);
+    flex-shrink: 0;
+    gap: 12px;
+}
+.pdf-modal-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--text);
+}
+.pdf-modal-actions { display: flex; align-items: center; gap: 10px; }
+
+.pdf-frame {
+    width: 100%;
+    height: 80vh;
+    border: none;
+    display: block;
+    flex: 1;
+}
 
 .modal-scrollable { padding: 32px; }
+.modal-scrollable > .btn { display: inline-flex; margin-bottom: 24px; }
 .modal-scrollable h2 { font-size: 1.5rem; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--border); letter-spacing: 0.04em; }
 .modal-scrollable h3 { font-size: 1.05rem; margin: 20px 0 10px; color: var(--text-muted); letter-spacing: 0.04em; }
 .modal-scrollable p  { font-size: 1.05rem; line-height: 1.7; margin-bottom: 12px; }
@@ -1081,6 +1180,19 @@ footer { background: var(--header-bg); border-top: 3px solid var(--header-border
 /* Info modal */
 #modal-info { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; padding: 20px; pointer-events: none; opacity: 0; transition: opacity 0.2s; }
 #modal-info.active { pointer-events: all; opacity: 1; }
+
+/* ===== SCROLLBARS ===== */
+.modal-box {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) var(--bg-elevated);
+}
+.modal-box::-webkit-scrollbar { width: 6px; }
+.modal-box::-webkit-scrollbar-track { background: var(--bg-elevated); }
+.modal-box::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-left: 1px solid var(--bg-elevated);
+}
+.modal-box::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
 /* ===== TOAST ===== */
 .toast {

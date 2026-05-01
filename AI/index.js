@@ -19,7 +19,7 @@ async function init() {
         buildCarousel();
     } catch (e) {
         document.getElementById('carousel-track').innerHTML =
-            '<p style="padding:24px;color:var(--text-muted);font-family:Cinzel,serif;font-size:0.85rem">Serve from an HTTP server to load cards.</p>';
+            '<p class="carousel-error">Serve from an HTTP server to load cards.</p>';
     }
 
     setupEventListeners();
@@ -86,7 +86,7 @@ function renderCartBar() {
             <span class="cart-line-price">$${item.price.toFixed(2)}</span>
         </div>
     `).join('') + `
-        <div class="cart-line" style="font-weight:700;border-top:2px solid var(--border);margin-top:4px">
+        <div class="cart-line cart-line-total">
             <span class="cart-line-name">Total</span>
             <span class="cart-line-price">$${total.toFixed(2)}</span>
         </div>
@@ -98,6 +98,7 @@ function renderCartBar() {
 function howToPlayHTML() {
     return `
         <h2>How to Play</h2>
+        <a href="../nano-data/Nano_The_Gathering_Rulebook.pdf" download class="btn btn-secondary btn-sm">Download Printable Rules PDF</a>
         <h3>Setup</h3>
         <p>Each player builds a deck of at least 30 cards, respecting the card count limits on each card. Shuffle your deck and draw 5 cards as your opening hand. Each player starts with 20 life points and 0 Treats.</p>
         <h3>Turn Structure</h3>
