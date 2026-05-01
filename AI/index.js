@@ -98,7 +98,7 @@ function renderCartBar() {
 function howToPlayHTML() {
     return `
         <h2>How to Play</h2>
-        <a href="../nano-data/Nano_The_Gathering_Rulebook.pdf" download class="btn btn-secondary btn-sm">Download Printable Rules PDF</a>
+        <a href="nano-data/Nano_The_Gathering_Rulebook.pdf" download class="btn btn-secondary btn-sm">Download Printable Rules PDF</a>
         <h3>Setup</h3>
         <p>Each player builds a deck of at least 30 cards, respecting the card count limits on each card. Shuffle your deck and draw 5 cards as your opening hand. Each player starts with 20 life points and 0 Treats.</p>
         <h3>Turn Structure</h3>

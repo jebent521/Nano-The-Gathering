@@ -91,7 +91,7 @@ function renderActiveDeck() {
         const row = document.createElement('div');
         row.className = 'deck-entry';
         row.innerHTML = `
-            <img src="../nano-data/${card.image}" alt="${card.name}" class="deck-entry-img">
+            <img src="nano-data/${card.image}" alt="${card.name}" class="deck-entry-img">
             <div class="deck-entry-info">
                 <span class="deck-entry-name">${card.name}</span>
                 <span class="deck-entry-type">${card.type}</span>

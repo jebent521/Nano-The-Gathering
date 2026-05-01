@@ -32,7 +32,7 @@ let _cards = null;
 
 async function loadCards() {
     if (_cards) return _cards;
-    const res = await fetch('../nano-data/cards.json');
+    const res = await fetch('nano-data/cards.json');
     _cards = await res.json();
     return _cards;
 }
@@ -162,7 +162,7 @@ function createCardEl(card, { onAdd } = {}) {
                 <span class="card-cost-badge">${card.treatCost}</span>
             </div>
             <div class="card-img-wrap">
-                <img src="../nano-data/${card.image}" alt="${card.name}" class="card-img" loading="lazy">
+                <img src="nano-data/${card.image}" alt="${card.name}" class="card-img" loading="lazy">
             </div>
             <div class="card-type-bar">
                 <span class="card-type-text">${card.type}</span>
@@ -174,7 +174,7 @@ function createCardEl(card, { onAdd } = {}) {
         ${onAdd ? `<button class="card-add-btn" title="Add to active deck" aria-label="Add ${card.name} to deck">+</button>` : ''}
     `;
     const cardImg = div.querySelector('.card-img');
-    cardImg.onerror = () => { cardImg.src = '../nano-data/media/placeholder.png'; cardImg.onerror = null; };
+    cardImg.onerror = () => { cardImg.src = 'nano-data/media/placeholder.png'; cardImg.onerror = null; };
 
     div.querySelector('.card-frame').addEventListener('click', () => openCardModal(card, onAdd));
     div.querySelector('.card-add-btn')?.addEventListener('click', e => {
@@ -215,7 +215,7 @@ function openCardModal(card, onAdd) {
                     <span class="detail-cost">${card.treatCost}</span>
                 </div>
                 <div class="detail-img-wrap">
-                    <img src="../nano-data/${card.image}" alt="${card.name}" class="detail-img" id="detail-img-el">
+                    <img src="nano-data/${card.image}" alt="${card.name}" class="detail-img" id="detail-img-el">
                 </div>
                 <div class="detail-typeline">
                     <span class="detail-type">${card.type}${card.role ? ` — ${card.role}` : ''}</span>
@@ -240,7 +240,7 @@ function openCardModal(card, onAdd) {
     document.body.appendChild(modal);
 
     const detailImg = modal.querySelector('#detail-img-el');
-    detailImg.onerror = () => { detailImg.src = '../nano-data/media/placeholder.png'; detailImg.onerror = null; };
+    detailImg.onerror = () => { detailImg.src = 'nano-data/media/placeholder.png'; detailImg.onerror = null; };
 
     requestAnimationFrame(() => requestAnimationFrame(() => modal.classList.add('active')));
 
