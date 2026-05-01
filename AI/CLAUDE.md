@@ -20,7 +20,7 @@ There are no tests or linting configured.
 
 ## Card Data
 
-Card data lives in `../nano-data/cards.json` (relative to `AI/`). Images are PNGs in `../nano-data/media/`.
+Card data lives in `nano-data/cards.json` (relative to `AI/`). Images are PNGs in `nano-data/media/`.
 
 There are three card `type` values: `Character`, `Action`, and `Treat`. Each card object has:
 
@@ -38,7 +38,7 @@ There are three card `type` values: `Character`, `Action`, and `Treat`. Each car
 | `rulesText` | string | |
 | `flavorText` | string \| null | null for Action and Treat cards |
 | `details` | string \| null | longer description; null for some cards |
-| `image` | string | path relative to `../nano-data/` |
+| `image` | string | path relative to `nano-data/` |
 
 ## Themes
 

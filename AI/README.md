@@ -41,7 +41,7 @@ No build step required. Serve with any HTTP server from the `AI/` directory:
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000`. Direct `file://` access will not work because `fetch()` is used to load `../nano-data/cards.json`.
+Then open `http://localhost:8000`. Direct `file://` access will not work because `fetch()` is used to load `nano-data/cards.json`.
 
 ## Use of AI
 
@@ -49,7 +49,7 @@ This implementation was built with significant assistance from **Claude Code** (
 
 - All HTML, CSS, and JavaScript files in this directory (`index.html`, `catalog.html`, `deck.html`, `shared.js`, `index.js`, `catalog.js`, `deck.js`, `style.css`)
 - The `CLAUDE.md` project context file
-- The AI image generator prompt used to produce `../nano-data/media/placeholder.png` and the image itself
-- The detailed prompt used to produce the printable PDF rulebook (`../nano-data/Nano_The_Gathering_Rulebook.pdf`) and the PDF itself
+- The AI image generator prompt used to produce `nano-data/media/placeholder.png` and the image itself
+- The detailed prompt used to produce the printable PDF rulebook (`nano-data/Nano_The_Gathering_Rulebook.pdf`) and the PDF itself
 
 Design decisions, game content, card data, card artwork, and all requirements were authored by the human developer. AI was used as an implementation and writing tool under direct human direction.
