@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Catalog — Nano: the Gathering</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="chocolate">
+
+    <header id="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">Nano<span class="logo-colon">:</span> the Gathering</a>
+            <nav class="nav">
+                <a href="index.html"   class="nav-link" data-page="index.html">Home</a>
+                <a href="catalog.html" class="nav-link" data-page="catalog.html">Cards</a>
+                <a href="deck.html"    class="nav-link" data-page="deck.html">Deck Builder</a>
+                <button class="btn btn-ghost btn-sm" id="btn-active-deck">Active Deck: — (<span id="deck-count">0</span>)</button>
+                <button class="btn btn-theme" id="btn-theme">
+                    <span id="theme-icon">☀️</span>
+                    <span id="theme-label">Cheese</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="section-inner">
+        <h1 class="page-title">Card Catalog</h1>
+        <div class="filter-bar">
+            <div class="filter-row filter-main">
+                <input type="search" id="filter-name" class="filter-input filter-search" placeholder="Search by name…">
+                <select id="filter-type" class="filter-select">
+                    <option value="">All Types</option>
+                    <option value="Character">Character</option>
+                    <option value="Action">Action</option>
+                    <option value="Treat">Treat</option>
+                </select>
+                <select id="filter-rarity" class="filter-select">
+                    <option value="">All Rarities</option>
+                    <option value="Common">Common</option>
+                    <option value="Uncommon">Uncommon</option>
+                    <option value="Rare">Rare</option>
+                </select>
+                <button class="btn btn-ghost btn-sm" id="btn-advanced">Advanced ▾</button>
+                <button class="btn btn-ghost btn-sm" id="btn-clear-filters">Clear</button>
+            </div>
+            <div class="filter-row filter-advanced hidden" id="advanced-filters">
+                <div class="filter-range-group">
+                    <label>Cost</label>
+                    <input type="number" id="f-cost-min" class="filter-input filter-num" placeholder="Min" min="0">
+                    <span>–</span>
+                    <input type="number" id="f-cost-max" class="filter-input filter-num" placeholder="Max" min="0">
+                </div>
+                <div class="filter-range-group">
+                    <label>Attack</label>
+                    <input type="number" id="f-atk-min" class="filter-input filter-num" placeholder="Min" min="0">
+                    <span>–</span>
+                    <input type="number" id="f-atk-max" class="filter-input filter-num" placeholder="Max" min="0">
+                </div>
+                <div class="filter-range-group">
+                    <label>Defense</label>
+                    <input type="number" id="f-def-min" class="filter-input filter-num" placeholder="Min" min="0">
+                    <span>–</span>
+                    <input type="number" id="f-def-max" class="filter-input filter-num" placeholder="Max" min="0">
+                </div>
+            </div>
+            <div class="filter-status">
+                <span id="result-count"></span>
+            </div>
+        </div>
+
+        <div id="card-grid" class="card-grid"></div>
+        <p id="no-results" class="no-results hidden">No cards match your filters.</p>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <span>Nano: the Gathering © 2025</span>
+            <a href="https://github.com" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+        </div>
+    </footer>
+
+    <div id="fly-container" aria-hidden="true"></div>
+
+    <script src="shared.js"></script>
+    <script src="catalog.js"></script>
+</body>
+</html>

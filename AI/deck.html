@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deck Builder — Nano: the Gathering</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="chocolate">
+
+    <header id="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">Nano<span class="logo-colon">:</span> the Gathering</a>
+            <nav class="nav">
+                <a href="index.html"   class="nav-link" data-page="index.html">Home</a>
+                <a href="catalog.html" class="nav-link" data-page="catalog.html">Cards</a>
+                <a href="deck.html"    class="nav-link" data-page="deck.html">Deck Builder</a>
+                <button class="btn btn-theme" id="btn-theme">
+                    <span id="theme-icon">☀️</span>
+                    <span id="theme-label">Cheese</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="section-inner deck-page-layout">
+
+        <!-- Sidebar: deck list -->
+        <aside class="deck-sidebar">
+            <div class="deck-sidebar-header">
+                <h2 class="deck-sidebar-title">My Decks</h2>
+                <button class="btn btn-primary btn-sm" id="btn-new-deck">+ New</button>
+            </div>
+            <ul class="deck-list" id="deck-list"></ul>
+        </aside>
+
+        <!-- Main: active deck editor -->
+        <main class="deck-main" id="deck-main">
+            <div id="deck-editor" class="hidden">
+                <div class="deck-editor-header">
+                    <input type="text" class="deck-name-input" id="deck-name-input" placeholder="Deck name…">
+                    <div class="deck-header-actions">
+                        <button class="btn btn-ghost btn-sm" id="btn-export-deck">Export .txt</button>
+                        <button class="btn btn-ghost btn-sm btn-danger" id="btn-delete-deck">Delete</button>
+                    </div>
+                </div>
+
+                <div class="deck-stats" id="deck-stats"></div>
+
+                <div class="deck-contents">
+                    <h3 class="deck-section-title">Cards in Deck</h3>
+                    <div id="deck-card-list" class="deck-card-list"></div>
+                </div>
+
+                <div class="deck-browser-header">
+                    <h3 class="deck-section-title">Add Cards</h3>
+                    <div class="filter-row filter-main">
+                        <input type="search" id="browser-search" class="filter-input filter-search" placeholder="Search by name…">
+                        <select id="browser-type" class="filter-select">
+                            <option value="">All Types</option>
+                            <option value="Character">Character</option>
+                            <option value="Action">Action</option>
+                            <option value="Treat">Treat</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="mini-grid" class="mini-grid"></div>
+            </div>
+
+            <div id="deck-empty-state" class="deck-empty-state">
+                <p>No decks yet. Create one to get started.</p>
+                <button class="btn btn-primary" id="btn-new-deck-empty">+ Create Deck</button>
+            </div>
+        </main>
+
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <span>Nano: the Gathering © 2025</span>
+            <a href="https://github.com" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+        </div>
+    </footer>
+
+    <div id="fly-container" aria-hidden="true"></div>
+
+    <script src="shared.js"></script>
+    <script src="deck.js"></script>
+</body>
+</html>
